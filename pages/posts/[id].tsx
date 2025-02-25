@@ -17,7 +17,14 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
   };
 }
 
-export default function Post({ postData }: { postData: any }) {
+interface PostData {
+  title: string;
+  date: string;
+  thumbnail: string;
+  blogContentHtml: string;
+}
+
+export default function Post({ postData }: { postData: PostData }) {
   return (
     <Layout>
       <article className={utilStyles.articleContainer}>
