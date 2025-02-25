@@ -1,0 +1,84 @@
+/* ニュース記事の見出し */
+.heading2Xl {
+  font-size: 3.8rem;
+  line-height: 1.2;
+  font-weight: 900;
+  margin: 2rem 0 1.5rem;
+  text-align: center;
+  color: #111;
+}
+
+.headingXl {
+  font-size: 2.5rem;
+  line-height: 1.4;
+  font-weight: 800;
+  margin: 1.5rem 0;
+  color: #222;
+}
+
+.headingLg {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 700;
+  margin: 1.2rem 0 0.8rem;
+  color: #333;
+}
+
+/* 記事カード */
+.article {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  background: white;
+}
+
+.article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 記事のサムネイル */
+.thumbnailImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+/* 記事のタイトル */
+.articleTitle {
+  padding: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+/* 記事の日付 */
+.articleDate {
+  padding: 0 1.5rem 1.5rem;
+  font-size: 1rem;
+  color: #777;
+}
+
+/* モバイル対応 */
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  
+  .heading2Xl {
+    font-size: 3rem;
+  }
+  
+  .headingXl {
+    font-size: 2rem;
+  }
+  
+  .headingLg {
+    font-size: 1.6rem;
+  }
+}
