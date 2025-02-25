@@ -2,8 +2,9 @@ import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import Layout from "@/cmp/layout";
 import Link from "next/link";
+import Image from "next/image";
 import utilStyles from "@/styles/utils.module.css";
-import { getSortedPostsData } from "@/lib/post";
+import { getSortedPostsData, PostData } from "@/lib/post";
 
 export const siteTitle = "カマキリのブログ";
 
@@ -16,7 +17,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData }: { allPostsData: any }) {
+export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
   return (
     <Layout home>
       <Head>
@@ -33,10 +34,17 @@ export default function Home({ allPostsData }: { allPostsData: any }) {
         <h2>最新の投稿</h2>
 
         <div className={styles.grid}>
-          {allPostsData.map(({ id, title, thumbnail, date }: { id: string; title: string; thumbnail: string; date: string }) => (
+          {allPostsData.map(({ id, title, thumbnail, date }) => (
             <article key={id} className={styles.article}>
               <Link href={`/posts/${id}`} className={styles.articleLink}>
-                <img src={thumbnail} className={styles.thumbnailImage} alt={title} />
+              
+                <Image
+                  src={thumbnail}
+                  className={styles.thumbnailImage}
+                  alt={title}
+                  width={500} // 必要に応じて適切なサイズに変更
+                  height={300}
+                />
                 <h3 className={styles.articleTitle}>{title}</h3>
                 <p className={styles.articleDate}>{date}</p>
               </Link>
